@@ -1,0 +1,31 @@
+{
+  "script_name": "Gaussian_force_vs_reduced_separation_S2_i_FINAL.py",
+  "script_version": "2.0",
+  "timestamp": "2026-09-30T07:53:59",
+  "N": 200,
+  "a": 1.0,
+  "kBT": 1.0,
+  "Rg": 5.773502691896258,
+  "geometry": {
+    "boundary": "absorbing z=0,L",
+    "tether": "z0=L/2, co-moving midpoint",
+    "continuous_Gaussian": true
+  },
+  "exact_force": "analytic chain-rule derivative of the absorbing-interval eigenmode survival probability",
+  "finite_difference": "central difference of the same exact free energy",
+  "delta_L_values": [
+    1.0,
+    2.0,
+    4.0
+  ],
+  "production_delta_L": 2.0,
+  "no_smoothing": true,
+  "no_artificial_floor": true,
+  "sign_filtering": false,
+  "note": "The finite-difference audit is deterministic; weak-confinement relative errors can become large when the exact force approaches zero.",
+  "outputs": {
+    "points_csv": "Gaussian_S2i_FINAL/FigS2i_Gaussian_Force_Audit_20260930_075354_points.csv",
+    "png": "Gaussian_S2i_FINAL/FigS2i_Gaussian_Force_Audit_20260930_075354.png",
+    "pdf": "Gaussian_S2i_FINAL/FigS2i_Gaussian_Force_Audit_20260930_075354.pdf"
+  }
+}
