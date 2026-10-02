@@ -1,0 +1,2 @@
+model,N,w,Rg,Rg_err,CI95_low,CI95_high,source
+strict_SAW_endpoint,200,inf,9.744501656839986,0.0276709510674734,9.690649404460176,9.798977044825792,canonical downstream Rg master
