@@ -1,0 +1,101 @@
+{
+  "script_name": "S9_Gaussian_BC_REV4_DIRECT_SURVIVAL_FINAL.py",
+  "script_version": "4.0-DIRECT-SURVIVAL-CRN",
+  "timestamp": "2026-09-29T14:14:23",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba": "0.60.0",
+  "N": 200,
+  "Rg": 5.773502691896258,
+  "Rg_definition": "sqrt(N/6), a=1",
+  "trials_per_block": 4000,
+  "blocks": 40,
+  "total_trials_per_width": 160000,
+  "delta_L": 2,
+  "center_widths": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    24,
+    28,
+    30,
+    32
+  ],
+  "all_widths": [
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34
+  ],
+  "block_checkpoints": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "geometry": {
+    "confinement": "one-coordinate slit",
+    "coordinate": "z",
+    "walls": "z=0 and z=L",
+    "tether": "z=L/2; even L",
+    "accessible_layers_absorbing": "z=1,...,L-1",
+    "mechanical_derivative": "[ln Z(L+dL)-ln Z(L-dL)]/(2 dL), both walls displaced symmetrically; tether re-centered at L/2"
+  },
+  "ensembles": {
+    "absorbing": "survival/first-passage ensemble of ordinary six-direction unconstrained lattice walks",
+    "reflecting": "discrete fold-back/mirror stochastic rule, not generic reflecting walls; exact Z=6^(N-1), DeltaF=0, f=0"
+  },
+  "absorbing_estimator": {
+    "Z_L": "6^(N-1) times the empirical survival probability",
+    "logZ_block": "log(6^(N-1)) + log(survivors/trials_per_block)",
+    "final_logZ": "log(mean_b exp(logZ_block_b)); equal-sized blocks",
+    "DeltaF": "logZ_free - final_logZ",
+    "DeltaF_uncertainty": "nonlinear block bootstrap of the complete DeltaF estimator"
+  },
+  "force_estimator": {
+    "block_force": "[lnZ_b(L+dL)-lnZ_b(L-dL)]/(2 dL)",
+    "point_force": "mean of signed paired block-force estimates",
+    "force_uncertainty": "SEM of signed paired block-force estimates; bootstrap audit also saved",
+    "sign_selection": false
+  },
+  "common_random_numbers": {
+    "enabled": true,
+    "description": "Same unconstrained relative z trajectories are replayed at all widths within each independent block; tether is re-centered at L/2 for each width."
+  },
+  "exact_audit": {
+    "method": "exact integer transfer recursion",
+    "max_abs_logZ_error": 0.04499941442600175,
+    "max_relative_force_error_pct": 1.688820066922721
+  },
+  "outputs": {
+    "figure_png": "/kaggle/working/S9_REV4_FINAL_1/Fig_S9_Gaussian_BC_REV4.png",
+    "figure_pdf": "/kaggle/working/S9_REV4_FINAL_1/Fig_S9_Gaussian_BC_REV4.pdf",
+    "points_csv": "/kaggle/working/S9_REV4_FINAL_1/S9_points.csv",
+    "block_csv": "/kaggle/working/S9_REV4_FINAL_1/S9_block_level.csv",
+    "force_csv": "/kaggle/working/S9_REV4_FINAL_1/S9_force_block_level.csv",
+    "convergence_csv": "/kaggle/working/S9_REV4_FINAL_1/S9_convergence.csv",
+    "exact_audit_csv": "/kaggle/working/S9_REV4_FINAL_1/S9_exact_audit.csv"
+  },
+  "no_data_selection": {
+    "negative_force_removed": false,
+    "point_removed_for_bad_sign": false,
+    "outlier_filter": false,
+    "smoothing": false,
+    "fitting": false
+  },
+  "runtime_seconds": 7.152339935302734
+}
