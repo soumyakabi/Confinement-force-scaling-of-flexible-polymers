@@ -1,0 +1,86 @@
+{
+  "purpose": "Patch only the w=1, L=infinity S6 reference using the independent high-statistics unconfined rerun.",
+  "original_S6_dataset": "S6.zip",
+  "patched_reference": {
+    "N": 200,
+    "w": 1.0,
+    "blocks": 64,
+    "roots_per_block": 8192,
+    "total_chains": 524288,
+    "logZ_inf": 323.076956090391,
+    "logZ_SE_block": 0.00940561394751372,
+    "ESS_min": 92.66051685531568,
+    "ESS_median": 222.47052864838258,
+    "max_weight_fraction_max": 0.07381722965660804
+  },
+  "old_reference": {
+    "logZ_inf": 323.10579583759295,
+    "logZ_SE_block": 0.01611692756437444,
+    "ESS_min": 38.57156588736073,
+    "ESS_median": 97.25292769497867,
+    "max_weight_fraction_max": 0.1408679413902319
+  },
+  "delta_logZ_inf": -0.028839747201971022,
+  "bootstrap": {
+    "replicates": 5000,
+    "w1_seed_formula": "20260928 + 700000007 + int(round(w*1000))*1009 + L"
+  },
+  "finite_width_data": "Copied unchanged from original S6 production except w=1 DeltaF values and associated bootstrap/convergence quantities were recomputed against the new reference.",
+  "geometry": "center-tethered absorbing slit, even integer L",
+  "monotonicity_summary": {
+    "0.2": {
+      "n_points": 9,
+      "n_raw_violations": 0,
+      "n_gt_2sigma_violations": 0
+    },
+    "0.5": {
+      "n_points": 9,
+      "n_raw_violations": 0,
+      "n_gt_2sigma_violations": 0
+    },
+    "1.0": {
+      "n_points": 9,
+      "n_raw_violations": 0,
+      "n_gt_2sigma_violations": 0
+    }
+  },
+  "pairwise_summary": {
+    "0.2_vs_0.5__strong": {
+      "n": 3,
+      "n_compatible_1sigma": 1,
+      "fraction_compatible_1sigma": 0.3333333333333333,
+      "mean_difference": 0.37810710728096336
+    },
+    "0.2_vs_0.5__weak": {
+      "n": 3,
+      "n_compatible_1sigma": 1,
+      "fraction_compatible_1sigma": 0.3333333333333333,
+      "mean_difference": 0.029233700417743574
+    },
+    "0.5_vs_1__strong": {
+      "n": 5,
+      "n_compatible_1sigma": 1,
+      "fraction_compatible_1sigma": 0.2,
+      "mean_difference": -0.12270708581117966
+    },
+    "0.5_vs_1__weak": {
+      "n": 2,
+      "n_compatible_1sigma": 0,
+      "fraction_compatible_1sigma": 0.0,
+      "mean_difference": 0.07792494823113061
+    },
+    "0.2_vs_1__strong": {
+      "n": 4,
+      "n_compatible_1sigma": 0,
+      "fraction_compatible_1sigma": 0.0,
+      "mean_difference": 0.12476131925195888
+    },
+    "0.2_vs_1__weak": {
+      "n": 1,
+      "n_compatible_1sigma": 0,
+      "fraction_compatible_1sigma": 0.0,
+      "mean_difference": 0.10411878318183232
+    }
+  },
+  "publication_note": "Figure legend does not expose internal Rg quality diagnostic; diagnostic remains in source CSV."
+}

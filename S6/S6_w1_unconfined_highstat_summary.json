@@ -1,0 +1,16 @@
+{
+  "N": 200,
+  "w": 1.0,
+  "blocks": 64,
+  "roots_per_block": 8192,
+  "total_chains": 524288,
+  "seed": 20260928,
+  "logZ_inf": 323.076956090391,
+  "logZ_SE_block": 0.00940561394751372,
+  "ESS_min": 92.66051685531568,
+  "ESS_median": 222.47052864838258,
+  "max_weight_fraction_max": 0.07381722965660804,
+  "max_weight_fraction_median": 0.03222507553018279,
+  "all_valid": true,
+  "sampler": "canonical_unconfined_SIS"
+}
