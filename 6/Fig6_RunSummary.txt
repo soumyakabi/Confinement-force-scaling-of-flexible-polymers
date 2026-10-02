@@ -1,0 +1,56 @@
+FIGURE 6 REVIEWER-DEFENSIBLE PRODUCTION SUMMARY
+==================================================================================
+Script version: Fig6-DJ-REV-FINAL-1.0
+Timestamp: Fri Sep 25 09:15:52 2026
+Python: 3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]
+Platform: Linux-6.12.90+-x86_64-with-glibc2.35
+Numba available: True
+N: 200
+w values: [0.1, 0.2, 0.3, 0.4, 0.5]
+Rg source: /kaggle/input/datasets/soumyajyotikabi/dj-rg-crossover/Fig5_DJ_Rg_Crossover_Data.csv
+blocks: 20; roots/block: 256; pilot roots/width: 3000
+max population: 1024; workers: 1 (sequential width production)
+delta_L primary: 2; fit window: (0.6, 1.8)
+Gaussian reference alpha: -3.0
+SAW reference alpha: -2.70184667
+
+Primary exponent results:
+w=0.1: alpha=-3.15630 +/- 0.05456 (bootstrap 95% CI [-3.20980, -3.10068]), n_fit=4, R2=0.9998
+w=0.2: alpha=-3.08545 +/- 0.05149 (bootstrap 95% CI [-3.13812, -3.03514]), n_fit=4, R2=0.9997
+w=0.3: alpha=-3.05158 +/- 0.06120 (bootstrap 95% CI [-3.11409, -2.99169]), n_fit=4, R2=0.9999
+w=0.4: alpha=-3.00021 +/- 0.05431 (bootstrap 95% CI [-3.05569, -2.94706]), n_fit=5, R2=0.9997
+w=0.5: alpha=-2.95217 +/- 0.06256 (bootstrap 95% CI [-3.01817, -2.89306]), n_fit=5, R2=0.9992
+
+Policy:
+- absorbing/survival ensemble; tether at L/2; even integer L; accessible layers 1..L-1
+- signed force estimates retained; sign-independent QC flags
+- no SNR filtering, no sign selection, no residual sigma-clipping
+- force uncertainty from block-resolved logZ endpoint ensembles and bootstrap
+- exponent uncertainty from a width-resolved block bootstrap with a shared Rg draw
+- finite-difference audit uses already simulated widths (delta_L=2 vs 4)
+- DeltaF output is relative to the widest simulated width, DeltaF_rel(L;Lref)
+- collapse residuals are an audit of L/Rg organization, not a universality claim
+
+Total runtime: 0.094 h
+
+Output files:
+  Fig6_BlockLevel.csv
+  Fig6_CollapseResiduals.csv
+  Fig6_CollapseSpread.csv
+  Fig6_Convergence_DeltaF_relative.csv
+  Fig6_Convergence_Force.csv
+  Fig6_Convergence_Z.csv
+  Fig6_DJ_Force_Crossover_REVISED.pdf
+  Fig6_DJ_Force_Crossover_REVISED.png
+  Fig6_ExponentFits.csv
+  Fig6_FiniteDifference_Audit.csv
+  Fig6_FitWindowSensitivity.csv
+  Fig6_LatticeGrid.csv
+  Fig6_PointLevel.csv
+  Fig6_WidthLevel.csv
+  partial_widths_w0.1.csv
+  partial_widths_w0.2.csv
+  partial_widths_w0.3.csv
+  partial_widths_w0.4.csv
+  partial_widths_w0.5.csv
+  pilots

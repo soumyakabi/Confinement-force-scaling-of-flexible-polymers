@@ -1,0 +1,258 @@
+{
+  "script_version": "Fig6-DJ-REV-FINAL-1.0",
+  "timestamp": "2026-09-25T09:15:52",
+  "N": 200,
+  "w_values": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "Rg_source": "/kaggle/input/datasets/soumyajyotikabi/dj-rg-crossover/Fig5_DJ_Rg_Crossover_Data.csv",
+  "Rg_values": {
+    "0.1": {
+      "Rg": 6.667453938618453
+    },
+    "0.2": {
+      "Rg": 6.667453938618453
+    },
+    "0.3": {
+      "Rg": 6.667453938618453
+    },
+    "0.4": {
+      "Rg": 6.667453938618453
+    },
+    "0.5": {
+      "Rg": 6.667453938618453
+    }
+  },
+  "ensemble": "center-tethered Domb-Joyce survival/first-passage ensemble in absorbing slit",
+  "geometry": {
+    "walls": "z=0 and z=L",
+    "accessible_layers": "z=1,...,L-1",
+    "tether": "z0=L/2",
+    "L": "even integer wall separation"
+  },
+  "derivative": {
+    "definition": "f = kBT d ln Z / dL",
+    "primary_delta_L": 2,
+    "mechanical_rule": "both walls displaced symmetrically; tether follows midpoint",
+    "finite_difference_audit": "delta_L=2 versus delta_L=4"
+  },
+  "sampling": {
+    "sampler": "genuine PERM with independently generated unpruned pilot thresholds per width",
+    "blocks": 20,
+    "roots_per_block": 256,
+    "pilot_roots": 3000,
+    "max_population": 1024,
+    "prune_probability": 0.5,
+    "C_minus": 0.5,
+    "C_plus": 2.0
+  },
+  "statistics": {
+    "signed_force_policy": true,
+    "sign_based_deletion": false,
+    "SNR_filtering": false,
+    "sigma_clipping": false,
+    "point_force_uncertainty": "width-level block bootstrap + independent endpoint propagation",
+    "exponent_uncertainty": "width-resolved block bootstrap with shared Rg draw per w",
+    "neighboring_force_covariance": "retained in exponent bootstrap because one resampled width is reused in adjacent derivatives"
+  },
+  "fit": {
+    "primary_window": [
+      0.6,
+      1.8
+    ],
+    "sensitivity_windows": [
+      [
+        0.6,
+        1.6
+      ],
+      [
+        0.6,
+        1.8
+      ],
+      [
+        0.8,
+        1.8
+      ]
+    ],
+    "Gaussian_alpha": -3.0,
+    "SAW_alpha": -2.7018466738257683,
+    "interpretation": "finite-range effective exponent; not an asymptotic proof"
+  },
+  "outputs": {
+    "width_level": "Fig6_WidthLevel.csv",
+    "block_level": "Fig6_BlockLevel.csv",
+    "point_level": "Fig6_PointLevel.csv",
+    "convergence_Z": "Fig6_Convergence_Z.csv",
+    "convergence_DeltaF": "Fig6_Convergence_DeltaF_relative.csv",
+    "convergence_force": "Fig6_Convergence_Force.csv",
+    "exponents": "Fig6_ExponentFits.csv",
+    "fit_sensitivity": "Fig6_FitWindowSensitivity.csv",
+    "fd_audit": "Fig6_FiniteDifference_Audit.csv",
+    "collapse_spread": "Fig6_CollapseSpread.csv",
+    "collapse_residuals": "Fig6_CollapseResiduals.csv"
+  },
+  "quality_policy": {
+    "invalid_overflow": true,
+    "minimum_valid_blocks": 15,
+    "ESS_caution": 20.0,
+    "ESS_critical": 5.0,
+    "weight_fraction_caution": 0.1,
+    "weight_fraction_critical": 0.4
+  },
+  "results": [
+    {
+      "w": 0.1,
+      "N": 200,
+      "Rg": 6.667453938618453,
+      "Rg_err": 0.0072708123937637,
+      "fit_window_lo": 0.6,
+      "fit_window_hi": 1.8,
+      "status": "RESOLVED",
+      "alpha": -3.181495460535534,
+      "intercept": 3.0267540121370313,
+      "r2": 0.9998105617023628,
+      "alpha_wls_se": 0.030966444333941655,
+      "n_fit": 4,
+      "window_lo": 0.6,
+      "window_hi": 1.8,
+      "bootstrap_status": "RESOLVED",
+      "bootstrap_alpha_median": -3.156298709458364,
+      "bootstrap_alpha_mean": -3.1560565689693476,
+      "bootstrap_alpha_ci_low": -3.2098033697614072,
+      "bootstrap_alpha_ci_high": -3.100680091963365,
+      "bootstrap_alpha_se_bootstrap": 0.02786420315644033,
+      "bootstrap_failure_fraction": 0.0,
+      "bootstrap_n_boot": 4000,
+      "alpha_primary": -3.156298709458364,
+      "alpha_primary_err": 0.0545616388990211,
+      "alpha_minus_gaussian": -0.1562987094583641,
+      "alpha_minus_saw": -0.45445203563259584,
+      "z_to_gaussian_using_bootstrap_se": -5.609301245072151,
+      "z_to_saw_using_bootstrap_se": -16.30952922217541
+    },
+    {
+      "w": 0.2,
+      "N": 200,
+      "Rg": 7.15909796659843,
+      "Rg_err": 0.0105525934921017,
+      "fit_window_lo": 0.6,
+      "fit_window_hi": 1.8,
+      "status": "RESOLVED",
+      "alpha": -3.1354223877335836,
+      "intercept": 2.930959391385126,
+      "r2": 0.9997315398202846,
+      "alpha_wls_se": 0.036331162861307144,
+      "n_fit": 4,
+      "window_lo": 0.6,
+      "window_hi": 1.8,
+      "bootstrap_status": "RESOLVED",
+      "bootstrap_alpha_median": -3.085446399365795,
+      "bootstrap_alpha_mean": -3.085663171583001,
+      "bootstrap_alpha_ci_low": -3.138119525668354,
+      "bootstrap_alpha_ci_high": -3.0351360979635076,
+      "bootstrap_alpha_se_bootstrap": 0.02698249990584092,
+      "bootstrap_failure_fraction": 0.0,
+      "bootstrap_n_boot": 4000,
+      "alpha_primary": -3.085446399365795,
+      "alpha_primary_err": 0.05149171385242313,
+      "alpha_minus_gaussian": -0.08544639936579479,
+      "alpha_minus_saw": -0.3835997255400265,
+      "z_to_gaussian_using_bootstrap_se": -3.166733981801966,
+      "z_to_saw_using_bootstrap_se": -14.21661176238857
+    },
+    {
+      "w": 0.3,
+      "N": 200,
+      "Rg": 7.547954539467724,
+      "Rg_err": 0.0146480562237598,
+      "fit_window_lo": 0.6,
+      "fit_window_hi": 1.8,
+      "status": "RESOLVED",
+      "alpha": -3.0882515186746566,
+      "intercept": 2.8676854580372075,
+      "r2": 0.9998868508257742,
+      "alpha_wls_se": 0.023229931632386982,
+      "n_fit": 4,
+      "window_lo": 0.6,
+      "window_hi": 1.8,
+      "bootstrap_status": "RESOLVED",
+      "bootstrap_alpha_median": -3.0515781625971523,
+      "bootstrap_alpha_mean": -3.0521169055140644,
+      "bootstrap_alpha_ci_low": -3.1140913331244793,
+      "bootstrap_alpha_ci_high": -2.9916871481218097,
+      "bootstrap_alpha_se_bootstrap": 0.031098035176909938,
+      "bootstrap_failure_fraction": 0.0,
+      "bootstrap_n_boot": 4000,
+      "alpha_primary": -3.0515781625971523,
+      "alpha_primary_err": 0.06120209250133479,
+      "alpha_minus_gaussian": -0.05157816259715231,
+      "alpha_minus_saw": -0.34973148877138405,
+      "z_to_gaussian_using_bootstrap_se": -1.6585666040872162,
+      "z_to_saw_using_bootstrap_se": -11.246095992297839
+    },
+    {
+      "w": 0.4,
+      "N": 200,
+      "Rg": 7.807885302897903,
+      "Rg_err": 0.021617663119327,
+      "fit_window_lo": 0.6,
+      "fit_window_hi": 1.8,
+      "status": "RESOLVED",
+      "alpha": -3.037208791464845,
+      "intercept": 2.8335798903930836,
+      "r2": 0.9997303584792355,
+      "alpha_wls_se": 0.028798241191267664,
+      "n_fit": 5,
+      "window_lo": 0.6,
+      "window_hi": 1.8,
+      "bootstrap_status": "RESOLVED",
+      "bootstrap_alpha_median": -3.0002055050400074,
+      "bootstrap_alpha_mean": -3.0007498680838207,
+      "bootstrap_alpha_ci_low": -3.055691911522745,
+      "bootstrap_alpha_ci_high": -2.947064097411727,
+      "bootstrap_alpha_se_bootstrap": 0.027588418723239694,
+      "bootstrap_failure_fraction": 0.0,
+      "bootstrap_n_boot": 4000,
+      "alpha_primary": -3.0002055050400074,
+      "alpha_primary_err": 0.0543139070555092,
+      "alpha_minus_gaussian": -0.000205505040007381,
+      "alpha_minus_saw": -0.2983588312142391,
+      "z_to_gaussian_using_bootstrap_se": -0.007448960452172254,
+      "z_to_saw_using_bootstrap_se": -10.814640527509109
+    },
+    {
+      "w": 0.5,
+      "N": 200,
+      "Rg": 7.998446617153261,
+      "Rg_err": 0.0196200078211687,
+      "fit_window_lo": 0.6,
+      "fit_window_hi": 1.8,
+      "status": "RESOLVED",
+      "alpha": -3.0631877464967188,
+      "intercept": 2.8050953203041646,
+      "r2": 0.9992279471823524,
+      "alpha_wls_se": 0.04915913231284525,
+      "n_fit": 5,
+      "window_lo": 0.6,
+      "window_hi": 1.8,
+      "bootstrap_status": "RESOLVED",
+      "bootstrap_alpha_median": -2.9521727069911803,
+      "bootstrap_alpha_mean": -2.9533903922467415,
+      "bootstrap_alpha_ci_low": -3.018168554879142,
+      "bootstrap_alpha_ci_high": -2.8930579854939964,
+      "bootstrap_alpha_se_bootstrap": 0.031902411541722915,
+      "bootstrap_failure_fraction": 0.0,
+      "bootstrap_n_boot": 4000,
+      "alpha_primary": -2.9521727069911803,
+      "alpha_primary_err": 0.06255528469257277,
+      "alpha_minus_gaussian": 0.047827293008819716,
+      "alpha_minus_saw": -0.250326033165412,
+      "z_to_gaussian_using_bootstrap_se": 1.4991748490947079,
+      "z_to_saw_using_bootstrap_se": -7.846617890877254
+    }
+  ]
+}
