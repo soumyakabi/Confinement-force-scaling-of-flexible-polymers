@@ -1,0 +1,37 @@
+{
+  "figure": "Fig. 5",
+  "script": "Fig5_Rg_REBASE_PATCH_FINAL.py",
+  "purpose": "Plot/data-only rebase of the strict-SAW endpoint onto the current canonical Rg master; no Monte Carlo rerun.",
+  "N": 200,
+  "finite_w": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "dj_values_unchanged": true,
+  "strict_SAW_old": {
+    "Rg": 9.669317863734271,
+    "Rg_err": 0.0636926796208264
+  },
+  "strict_SAW_new_canonical": {
+    "Rg": 9.744501656839986,
+    "Rg_err": 0.0276709510674734,
+    "CI95_low": 9.690649404460176,
+    "CI95_high": 9.798977044825792
+  },
+  "w8_vs_corrected_SAW": {
+    "delta_Rg": -0.026572727686517084,
+    "z": -0.4052239683900167
+  },
+  "same_L_or_x_concept": "Not applicable; Fig. 5 is the unconfined size crossover versus overlap penalty.",
+  "interpretation": "Finite-w DJ states are crossover states; the strict-SAW endpoint is the mathematical w->infinity limit. The corrected w=8 point lies within the strict-SAW 95% CI.",
+  "no_MC_rerun": true,
+  "no_finite_w_data_changed": true
+}
