@@ -1,0 +1,35 @@
+{
+  "script": "patch_S8_convergence_REV9.py",
+  "version": "1.0",
+  "timestamp": "2026-09-29T09:13:21.871621",
+  "input_block_csv": "/mnt/data/S8new_extract/FigS8_block_level (1).csv",
+  "input_final_summary": "/mnt/data/S8new_extract/FigS8_final_state_summary.csv",
+  "plot_L": 24,
+  "block_counts": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "bootstrap_reps": 5000,
+  "seed": 20260929,
+  "MC_rerun": false,
+  "correction": "Only cumulative DeltaF convergence was recomputed from the existing 40 production blocks; final point estimates unchanged.",
+  "estimator": "DeltaF_n = mean_b[ln Z_inf,b - ln Z_L,b] over the first n independent blocks.",
+  "uncertainty": "SEM of the signed blockwise DeltaF values; paired bootstrap reported as audit diagnostic.",
+  "sign_filtering": false,
+  "point_deletion": false,
+  "smoothing": false,
+  "fitting": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "outputs": {
+    "corrected_convergence_levels": "FigS8_convergence_levels_CORRECTED.csv",
+    "corrected_convergence_audit": "FigS8_convergence_audit_CORRECTED.csv",
+    "corrected_panel_c_png": "FigS8_panel_c_CORRECTED_600dpi.png",
+    "corrected_panel_c_pdf": "FigS8_panel_c_CORRECTED.pdf",
+    "corrected_full_png": "FigS8_FreeEnergy_Overlap_REV9_CORRECTED_600dpi.png",
+    "corrected_full_pdf": "FigS8_FreeEnergy_Overlap_REV9_CORRECTED.pdf"
+  }
+}
