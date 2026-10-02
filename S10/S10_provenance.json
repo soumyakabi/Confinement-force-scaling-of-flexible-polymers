@@ -1,0 +1,182 @@
+{
+  "script_name": "S10_DJ_Boundary_Force_Ratio_REV4_FINAL.py",
+  "script_version": "4.0-NUMBA-FINAL-PERM",
+  "timestamp": "2026-09-29T15:09:26.095024",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba": "0.60.0",
+  "N": 200,
+  "w_values": [
+    0.3,
+    0.5
+  ],
+  "centers": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34
+  ],
+  "delta_L": 2,
+  "blocks": 40,
+  "block_counts": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "roots_per_block": 384,
+  "pilot_roots": 20000,
+  "C_minus": 0.5,
+  "C_plus": 2.0,
+  "prune_probability": 0.5,
+  "max_clones": 4,
+  "max_population": 32768,
+  "seed": 20260930,
+  "ratio_fit_xmax_restricted": 2.5,
+  "ratio_reliable_rel_err_threshold": 0.5,
+  "geometry": {
+    "lattice": "3D simple cubic",
+    "tether": "z = L/2 (center tether)",
+    "absorbing": "walls at z=0 and z=L; accessible layers 1..L-1",
+    "reflecting": "discrete fold-back / mirror rule; NOT generic reflecting walls",
+    "even_L_only": true,
+    "mechanical_derivative": "f(L)=kBT[lnZ(L+dL)-lnZ(L-dL)]/(2 dL); both walls displaced symmetrically; tether recentred at L/2 of each derivative state; one-coordinate slit; no geometry factor"
+  },
+  "Rg_source": {
+    "master_file": "/kaggle/input/datasets/soumyajyotikabi/merge-rg-new/Rg_MASTER_FINAL_MERGED.csv",
+    "values": {
+      "0.3": {
+        "Rg": 7.547954539467724,
+        "Rg_err": 0.0146480562237598,
+        "quality_flag": "OK"
+      },
+      "0.5": {
+        "Rg": 7.998446617153261,
+        "Rg_err": 0.0196200078211687,
+        "quality_flag": "OK"
+      }
+    }
+  },
+  "estimator": {
+    "lnZ": "PERM block log-partition estimates under frozen thresholds",
+    "force": "mean of signed block differences [lnZ(L+dL)-lnZ(L-dL)]/(2 dL)",
+    "uncertainty": "SEM across signed block-force estimates; independent bootstrap for ratio",
+    "cumulative": "first n independent blocks used directly at each convergence level"
+  },
+  "reviewer_2_response": {
+    "comment_1": "Absorbing = survival/first-passage ensemble; reflecting = discrete fold-back rule. Both are named in every row of the output CSVs and in this provenance.",
+    "comment_2": "Mechanical derivative fully specified in the geometry block.",
+    "comment_3": "Signed forces retained; quality flag sign-independent; force computed from paired block differences of ln Z at neighbouring widths; uncertainty is the SEM of the paired block differences; a percentile bootstrap of the paired block forces is reported as an audit. No CRN across widths is applied because PERM clone/prune decisions consume randomness and depend on the width-dependent population.",
+    "comment_4": "PERM with frozen thresholds from an independent unpruned pilot; no MAD outlier rejection; all blocks retained.",
+    "comment_7": "Blocks=40; convergence levels via block-counts [8, 16, 24, 32, 40]; the force-ratio dependence is audited using full-range and restricted constant-ratio fits with x=L/Rg <= 2.5; no data point is removed or selected on the basis of sign or residual."
+  },
+  "ratio_fits": [
+    {
+      "w": 0.3,
+      "fit_label": "full_constant",
+      "status": "OK",
+      "mean": 0.29010674148388654,
+      "mean_se": 0.008744824122113446,
+      "n_points": 13,
+      "x_min": 1.3248622454879269,
+      "x_max": 4.504531634658951,
+      "chi2": 15.77429434506312,
+      "dof": 12,
+      "chi2_red": 1.31452452875526
+    },
+    {
+      "w": 0.3,
+      "fit_label": "restricted_constant",
+      "status": "OK",
+      "mean": 0.2860943041366381,
+      "mean_se": 0.008862307328328869,
+      "n_points": 5,
+      "x_min": 1.3248622454879269,
+      "x_max": 2.3847520418782686,
+      "chi2": 6.277727311302511,
+      "dof": 4,
+      "chi2_red": 1.5694318278256278
+    },
+    {
+      "w": 0.3,
+      "fit_label": "full_linear",
+      "status": "OK",
+      "slope": 0.09113900104776111,
+      "intercept": 0.14789584894235325,
+      "slope_se": 0.024821862032026184,
+      "t": 3.6717229726831064,
+      "p_value": 0.003678551733901747,
+      "dof": 11,
+      "n_points": 13,
+      "x_min": 1.3248622454879269,
+      "x_max": 4.504531634658951,
+      "chi2": 2.2927447569339146,
+      "chi2_red": 0.20843134153944678
+    },
+    {
+      "w": 0.5,
+      "fit_label": "full_constant",
+      "status": "OK",
+      "mean": 0.34394089648432347,
+      "mean_se": 0.010498550657376341,
+      "n_points": 13,
+      "x_min": 1.2502427632078283,
+      "x_max": 4.250825394906616,
+      "chi2": 19.59565759163259,
+      "dof": 12,
+      "chi2_red": 1.6329714659693826
+    },
+    {
+      "w": 0.5,
+      "fit_label": "restricted_constant",
+      "status": "OK",
+      "mean": 0.33826039398663105,
+      "mean_se": 0.010671117385082403,
+      "n_points": 5,
+      "x_min": 1.2502427632078283,
+      "x_max": 2.250436973774091,
+      "chi2": 9.165357600413413,
+      "dof": 4,
+      "chi2_red": 2.2913394001033534
+    },
+    {
+      "w": 0.5,
+      "fit_label": "full_linear",
+      "status": "OK",
+      "slope": 0.12061283734228219,
+      "intercept": 0.16710983057334214,
+      "slope_se": 0.028559578640757692,
+      "t": 4.223200869292738,
+      "p_value": 0.001428663465641744,
+      "dof": 11,
+      "n_points": 13,
+      "x_min": 1.2502427632078283,
+      "x_max": 4.250825394906616,
+      "chi2": 1.7602320092380186,
+      "chi2_red": 0.16002109174891077
+    }
+  ],
+  "signed_estimates_retained": true,
+  "sign_selection": false,
+  "smoothing": false,
+  "fitting": false,
+  "outlier_filter": false,
+  "outputs": {
+    "force_csv": "/kaggle/working/S10_REV4_FINAL/S10_force_levels.csv",
+    "ratio_csv": "/kaggle/working/S10_REV4_FINAL/S10_ratio.csv",
+    "fit_csv": "/kaggle/working/S10_REV4_FINAL/S10_ratio_fits.csv",
+    "block_csv": "/kaggle/working/S10_REV4_FINAL/S10_block_level.csv",
+    "figure_png": "/kaggle/working/S10_REV4_FINAL/Fig_S10_boundary_force_ratio.png",
+    "figure_pdf": "/kaggle/working/S10_REV4_FINAL/Fig_S10_boundary_force_ratio.pdf"
+  }
+}
