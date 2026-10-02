@@ -1,0 +1,94 @@
+{
+  "script_name": "S11_DJ_Foldback_Reflecting_REV3_FINAL.py",
+  "script_version": "3.0-NUMBA-FINAL-PERM",
+  "timestamp": "2026-09-29T17:11:48.730432",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba": "0.60.0",
+  "N": 200,
+  "w_values": [
+    0.3,
+    0.5
+  ],
+  "boundary": "fold-back reflecting",
+  "centers": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32
+  ],
+  "delta_L": 2,
+  "blocks": 40,
+  "block_counts": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "roots_per_block": 384,
+  "pilot_roots": 20000,
+  "C_minus": 0.5,
+  "C_plus": 2.0,
+  "prune_probability": 0.5,
+  "max_clones": 4,
+  "max_population": 32768,
+  "seed": 20260930,
+  "geometry": {
+    "lattice": "3D simple cubic",
+    "tether": "z = L/2 (center tether)",
+    "boundary": "discrete fold-back / mirror rule; NOT generic reflecting walls",
+    "accessible_layers": "1..L-1",
+    "even_L_only": true,
+    "mechanical_derivative": "f(L)=kBT[lnZ(L+dL)-lnZ(L-dL)]/(2 dL); both walls displaced symmetrically; tether held at L/2 of each derivative state; one-coordinate slit; no geometry factor"
+  },
+  "Rg_source": {
+    "master_file": "/kaggle/input/datasets/soumyajyotikabi/master-file/Rg_MASTER_FINAL_MERGED.csv",
+    "values": {
+      "0.3": {
+        "Rg": 7.547954539467724,
+        "Rg_err": 0.0146480562237598,
+        "quality_flag": "OK"
+      },
+      "0.5": {
+        "Rg": 7.998446617153261,
+        "Rg_err": 0.0196200078211687,
+        "quality_flag": "OK"
+      }
+    }
+  },
+  "estimator": {
+    "lnZ": "block-averaged log(mean Rosenbluth weight) under PERM with frozen thresholds",
+    "force": "blockwise difference of independent endpoint lnZ estimates: (mean lnZ_+ - mean lnZ_-) / (2 dL)",
+    "uncertainty": "quadrature SEM from independent endpoint block ensembles; independent-endpoint percentile bootstrap CI",
+    "cumulative": "same state-specific seeds; first n production blocks used at each convergence level"
+  },
+  "gaussian_w0_note": "For the discrete fold-back rule the ideal Gaussian chain has six allowed moves at every step, hence Z = 6^(N-1), DeltaF = 0, and f = 0 exactly. w=0 is therefore not plotted.",
+  "reviewer_2_response": {
+    "comment_1": "The boundary is explicitly the discrete fold-back/mirror rule, named in every output row, in the figure title, and in this provenance. No claim about generic reflecting-wall physics is made.",
+    "comment_2": "Mechanical derivative fully specified: both walls displaced symmetrically, tether held at z=L/2 in each derivative state, one-coordinate slit, no geometry factor.",
+    "comment_3": "Signed forces retained; quality flag is sign-independent. The force uses independent endpoint block ensembles at L-dL and L+dL; the uncertainty is the block-level SEM from those endpoint estimates, with an independent-endpoint percentile bootstrap as an audit.",
+    "comment_4": "PERM with frozen thresholds from an independent unpruned pilot; no MAD outlier rejection, no sign filtering, no smoothing, and convergence reported at cumulative block counts [8, 16, 24, 32, 40].",
+    "comment_7": "This figure makes a single-ensemble claim at N=200 for two values of w. No cross-N claim is made; N-dependence of the fold-back force is outside the scope of this figure."
+  },
+  "signed_estimates_retained": true,
+  "sign_selection": false,
+  "final_plot_uncertainty": "independent-endpoint percentile bootstrap 95% CI; convergence panel uses block-level SEM",
+  "smoothing": false,
+  "fitting": false,
+  "outlier_filter": false,
+  "outputs": {
+    "force_csv": "/kaggle/working/S11_REV3_FINAL/S11_force_levels.csv",
+    "block_csv": "/kaggle/working/S11_REV3_FINAL/S11_block_level.csv",
+    "figure_png": "/kaggle/working/S11_REV3_FINAL/FigS11_foldback_reflecting.png",
+    "figure_pdf": "/kaggle/working/S11_REV3_FINAL/FigS11_foldback_reflecting.pdf"
+  }
+}
