@@ -1,0 +1,43 @@
+{
+  "figure": "Figure 2",
+  "N": 200,
+  "geometry": "3D cubic-lattice SAW; one-coordinate absorbing confinement; x0=L/2",
+  "gaussian_model": "continuous 3D Gaussian chain; exact analytic benchmark",
+  "gaussian_Rg": 5.773502691896258,
+  "saw_Rg": 9.669317863734271,
+  "saw_Rg_err": 0.0636926796208264,
+  "saw_Rg_source": "Rg_MASTER_FINAL.csv",
+  "saw_master_quality": "CAUTION",
+  "saw_points": 11,
+  "saw_block_rows": 440,
+  "minimum_SAW_blocks_per_width": 20,
+  "force_estimates_signed_and_retained": true,
+  "central_difference_delta_L": 2,
+  "central_difference_total_span": 4,
+  "gaussian_exact_validation": {
+    "max_abs_deltaF_difference": 1.7763568394002505e-15,
+    "max_abs_fRg_difference": 1.7763568394002505e-15
+  },
+  "saw_strong_confinement_fit": {
+    "intercept": 2.6634246043028766,
+    "intercept_err": 0.019141767888147195,
+    "amplitude": 14.345332160449225,
+    "exponent": -2.6532268658328295,
+    "exponent_err": 0.07412479820968972,
+    "chi2": 1.4028987521391838,
+    "dof": 4,
+    "reduced_chi2": 0.35072468803479595,
+    "n_points": 6,
+    "x_min": 0.827359293875816,
+    "x_max": 1.8615584112205856
+  },
+  "expected_SAW_exponent": -2.7018466738257683,
+  "fit_window": "L/Rg <= 1.9",
+  "fit_interpretation": "empirical finite-range scaling fit, not an asymptotic proof",
+  "gaussian_strong_confinement_reference": "f Rg = 2*pi^2*(L/Rg)^(-3)",
+  "figure_files": [
+    "Fig2_SAW_vs_Gaussian_PLOT_FINAL.png",
+    "Fig2_SAW_vs_Gaussian_PLOT_FINAL.pdf"
+  ],
+  "note": "All signed point-level estimates remain in the saved CSV; log-axis plotting displays only positive values."
+}
