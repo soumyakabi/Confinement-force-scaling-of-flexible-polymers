@@ -1,0 +1,4 @@
+N,Lr_real,Primary fRg,Control fRg,combined sigma,z,Primary roots/block x blocks; Nmax,Control roots/block x blocks; Nmax,classification
+2000,1.806456,2.669 +/- 0.481,2.870 +/- 0.534,0.719,0.280,512 x 8; 4096,1024 x 8; 4096,same geometry; different population configuration; retained as replication/control
+2000,2.627572,0.428 +/- 0.466,0.736 +/- 0.288,0.548,0.562,512 x 8; 4096,1024 x 8; 4096,same geometry; different population configuration; retained as replication/control
+2000,2.791795,0.681 +/- 0.765,0.599 +/- 0.351,0.842,-0.097,512 x 8; 4096,1024 x 8; 4096,same geometry; different population configuration; retained as replication/control
