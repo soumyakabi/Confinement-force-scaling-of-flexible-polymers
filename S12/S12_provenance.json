@@ -1,0 +1,124 @@
+{
+  "script_name": "S12_cubic_confinement_REV4_FINAL.py",
+  "script_version": "4.0-NUMBA",
+  "timestamp": "2026-09-30T01:04:57.143066",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba": "0.60.0",
+  "N": 200,
+  "w_values": [
+    0.0,
+    0.3,
+    0.5
+  ],
+  "target_L_over_Rg": [
+    1.2,
+    1.5,
+    1.8,
+    2.2,
+    2.7,
+    3.2
+  ],
+  "per_w_centers": {
+    "0.0": [
+      8,
+      10,
+      14,
+      16,
+      18
+    ],
+    "0.3": [
+      10,
+      12,
+      14,
+      18,
+      20,
+      24
+    ],
+    "0.5": [
+      10,
+      12,
+      14,
+      18,
+      22,
+      26
+    ]
+  },
+  "delta_L": 2,
+  "blocks": 40,
+  "block_counts": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "roots_per_block": 384,
+  "pilot_roots": 20000,
+  "C_minus": 0.5,
+  "C_plus": 2.0,
+  "prune_probability": 0.5,
+  "max_clones": 4,
+  "max_population": 32768,
+  "seed": 20260930,
+  "geometry": {
+    "confinement": "3D cubic",
+    "cube_side": "L in each of x, y, z",
+    "tether": "(L/2, L/2, L/2) (cube centre)",
+    "absorbing": "any coordinate hitting 0 or L kills the chain",
+    "reflecting": "discrete fold-back / mirror rule in each coordinate",
+    "accessible_layers": "1..L-1 in each coordinate",
+    "even_L_only": true,
+    "mechanical_derivative": "G = d ln Z / dL for isotropic cube dilation with tether kept at the geometric centre; all six faces move by +/- dL/2; cubic symmetry gives per-face force f_face = G/3"
+  },
+  "Rg_source": {
+    "master_file": "/kaggle/input/datasets/soumyajyotikabi/merge-rg-new/Rg_MASTER_FINAL_MERGED.csv",
+    "values": {
+      "0.0": {
+        "Rg": 5.775078640000605,
+        "Rg_err": 0.0048481753011338,
+        "quality_flag": "OK"
+      },
+      "0.3": {
+        "Rg": 7.547954539467724,
+        "Rg_err": 0.0146480562237598,
+        "quality_flag": "OK"
+      },
+      "0.5": {
+        "Rg": 7.998446617153261,
+        "Rg_err": 0.0196200078211687,
+        "quality_flag": "OK"
+      }
+    }
+  },
+  "exact_w0_reflecting": "For the discrete fold-back rule and w=0, Z = 6^(N-1) independent of L; hence G = 0 and f_face = 0 exactly.",
+  "exact_w0_absorbing_audit": "Independent lattice-transfer recursion for the same discrete cube, reported in S12_w0_exact_audit.csv; no continuum approximation or interpolation is used.",
+  "estimator": {
+    "lnZ": "block-averaged log(mean Rosenbluth weight) under PERM with frozen thresholds",
+    "G": "(lnZ(L+dL) - lnZ(L-dL)) / (2 dL)",
+    "f_face": "G / 3",
+    "uncertainty": "SEM of signed block-level per-face forces; percentile bootstrap CI",
+    "negative_blocks": "reported as a diagnostic only; no sign-based selection is applied",
+    "cumulative": "same seeds; first n blocks used at each convergence level"
+  },
+  "reviewer_2_response": {
+    "comment_1": "Absorbing = survival/first-passage ensemble in a cube; reflecting = discrete fold-back/mirror rule in each coordinate. Both are named in every output row and in the provenance.",
+    "comment_2": "Mechanical derivative fully specified: isotropic cube dilation; G = d ln Z / dL; f_face = G/3; per-face force is the response conjugate to moving one face by dL while the other five stay fixed.",
+    "comment_3": "Signed forces retained; quality flag sign-independent; force from paired block differences of ln Z; SEM of paired block differences; percentile bootstrap as audit.",
+    "comment_4": "PERM with frozen thresholds from an independent unpruned pilot; no MAD outlier rejection; geometry-specific convergence of endpoint lnZ and the resulting force is reported at cumulative block counts [8, 16, 24, 32, 40] in panel (c) and S12_convergence_audit.csv.",
+    "comment_7": "Fixed N=200, w-dependence only. No cross-N claim is made."
+  },
+  "signed_estimates_retained": true,
+  "sign_selection": false,
+  "smoothing": false,
+  "fitting": false,
+  "outlier_filter": false,
+  "outputs": {
+    "force_csv": "/kaggle/working/S12_REV4_FINAL/S12_force_levels.csv",
+    "block_csv": "/kaggle/working/S12_REV4_FINAL/S12_block_level.csv",
+    "exact_audit_csv": "/kaggle/working/S12_REV4_FINAL/S12_w0_exact_audit.csv",
+    "convergence_audit_csv": "/kaggle/working/S12_REV4_FINAL/S12_convergence_audit.csv",
+    "figure_png": "/kaggle/working/S12_REV4_FINAL/FigS12_cubic_perface.png",
+    "figure_pdf": "/kaggle/working/S12_REV4_FINAL/FigS12_cubic_perface.pdf"
+  }
+}
