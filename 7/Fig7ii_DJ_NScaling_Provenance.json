@@ -1,0 +1,174 @@
+{
+  "script_name": "Fig7ii_DJ_NScaling_PERM_FINAL_v1_2.py",
+  "script_version": "1.2-RGPROP-FITFIX",
+  "generated_utc": "2026-09-28T12:22:00+00:00",
+  "simulation_performed": true,
+  "smoke_test": false,
+  "input_rg_master": "/kaggle/input/datasets/soumyajyotikabi/rg-w0p1/Rg_MASTER_FINAL.csv",
+  "input_rg_master_sha256": "6acca6f998963d3ca99b462637cb124eaf7de0e66cdd6a58343408cf95522f84",
+  "pilot_threshold_source": "/kaggle/working/Fig7ii_PILOT/Fig7ii_DJ_NScaling_PilotThresholds.csv",
+  "pilot_threshold_source_sha256": "cea2aec179b4aca192b86f722b9f34da51c61a5f5e69368f012f31ad9412580b",
+  "canonical_Rg_definition": "sqrt(weighted mean of per-chain Rg^2), block-level Rg SEM/CI from Rg_MASTER_FINAL.py",
+  "N_list": [
+    100,
+    150,
+    200,
+    250
+  ],
+  "w": 0.1,
+  "target_ratios": [
+    1.0,
+    1.2,
+    1.4,
+    1.6,
+    1.8,
+    2.0,
+    2.2,
+    2.4,
+    2.6,
+    2.8,
+    3.0
+  ],
+  "delta_L": 2,
+  "geometry": {
+    "lattice": "3D simple cubic",
+    "walls": "z=0 and z=L",
+    "allowed_layers": "z=1,...,L-1",
+    "tether": "z=L/2",
+    "even_L_only": true,
+    "symmetric_wall_displacement": true
+  },
+  "ensemble": {
+    "model": "Domb\u2013Joyce",
+    "w": 0.1,
+    "ensemble": "center-tethered survival/Rosenbluth ensemble in an absorbing slit",
+    "overlap_weight": "exp(-w U)"
+  },
+  "force_definition": {
+    "mechanical_definition": "f=d ln Z/dL=-dF/dL",
+    "finite_difference": "[ln Z(L+delta_L)-ln Z(L-delta_L)]/(2 delta_L)",
+    "delta_L": 2,
+    "signed_block_force_retained": true,
+    "sign_selection": false,
+    "force_quality_does_not_depend_on_sign": true
+  },
+  "perm": {
+    "genuine_perm": true,
+    "pilot": "independent unpruned Domb\u2013Joyce Rosenbluth pilot per unique physical (N,L_state) derivative state",
+    "unique_pilot_states": 37,
+    "duplicate_derivative_references_reuse_same_thresholds": true,
+    "thresholds_frozen_before_production": true,
+    "pilot_roots": 2000,
+    "roots_per_block": 256,
+    "blocks": 20,
+    "population_cap": 4096,
+    "C_minus": 0.5,
+    "C_plus": 2.0,
+    "prune_probability": 0.5,
+    "max_clones": 4,
+    "overflow_policy": "hard invalidation; no silent branch deletion",
+    "total_overflow_events": 0
+  },
+  "uncertainty": {
+    "published_force_error": "SEM across paired signed block-force estimates",
+    "bootstrap_reps": 4000,
+    "bootstrap_CI": "percentile 95% CI of block-force mean",
+    "logZ_error": "SEM across independent blocks",
+    "fRg_error": "quadrature of force-sampling term Rg*SEM(f) and independent master-Rg term |f|*Rg_err"
+  },
+  "convergence": {
+    "cumulative_block_counts": [
+      4,
+      8,
+      12,
+      16,
+      20
+    ],
+    "summary": {
+      "12": {
+        "median_abs_relative_force_change_to_final": 0.01117454041768684,
+        "max_abs_relative_force_change_to_final": 0.06047559645925138,
+        "median_abs_relative_deltaF_change_to_final": 0.01117454041768684,
+        "max_abs_relative_deltaF_change_to_final": 0.06047559645925138
+      },
+      "16": {
+        "median_abs_relative_force_change_to_final": 0.005459335779812613,
+        "max_abs_relative_force_change_to_final": 0.037120366160745544,
+        "median_abs_relative_deltaF_change_to_final": 0.005459335779812613,
+        "max_abs_relative_deltaF_change_to_final": 0.037120366160745544
+      }
+    }
+  },
+  "scaling_analysis": {
+    "primary_fit_window": [
+      0.9,
+      1.8
+    ],
+    "fit_method": "weighted least squares in ln(fRg) vs ln(L/Rg); reported exponent uncertainty inflated by sqrt(reduced chi^2) when reduced chi^2>1",
+    "gaussian_reference_exponent": -3.0,
+    "SAW_reference_exponent": -2.7018466738257683,
+    "interpretation": "finite-range effective exponent and approximate collapse test; no exact universal-master-curve claim",
+    "main_fit": {
+      "scope": "pooled",
+      "xmin": 0.9,
+      "xmax": 1.8,
+      "n_points": 11,
+      "exponent": -3.045621578245374,
+      "exponent_err": 0.14988379085407175,
+      "formal_exponent_err": 0.016120991462151867,
+      "amplitude": 21.313652872282315,
+      "amplitude_err": 0.9162355665304504,
+      "formal_amplitude_err": 0.09854718553080957,
+      "chi2": 777.9798539441689,
+      "dof": 9,
+      "reduced_chi2": 86.44220599379655,
+      "error_inflation_factor": 9.297430074692498
+    },
+    "fit_windows_audit": [
+      [
+        0.9,
+        1.6
+      ],
+      [
+        0.9,
+        1.8
+      ],
+      [
+        1.0,
+        1.8
+      ]
+    ],
+    "collapse_summary": {
+      "n_points": 28,
+      "rms_log_residual": 0.12969021615456483,
+      "median_abs_percent_residual": 6.864321408410284
+    }
+  },
+  "QA_summary": {
+    "central_points": 29,
+    "invalid_points": 0,
+    "nonpositive_force_points": 0,
+    "total_overflow_events": 0,
+    "all_points_OK": true,
+    "all_overflow_zero": true,
+    "sign_selected": false,
+    "excluded": false
+  },
+  "files": {
+    "point_level": "Fig7ii_DJ_NScaling_PointLevel.csv",
+    "block_level": "Fig7ii_DJ_NScaling_BlockLevel.csv",
+    "paired_block_level": "Fig7ii_DJ_NScaling_PairedBlockLevel.csv",
+    "pilot_thresholds": "Fig7ii_DJ_NScaling_PilotThresholds.csv",
+    "pilot_state_summary": "Fig7ii_DJ_NScaling_PilotStateSummary.csv",
+    "l_plan": "Fig7ii_DJ_NScaling_LPlan.csv",
+    "convergence": "Fig7ii_DJ_NScaling_Convergence.csv",
+    "fit_diagnostics": "Fig7ii_DJ_NScaling_FitDiagnostics.csv",
+    "collapse_residuals": "Fig7ii_DJ_NScaling_CollapseResiduals.csv",
+    "figure_png": "Fig7ii_DJ_NScaling.png",
+    "figure_pdf": "Fig7ii_DJ_NScaling.pdf"
+  },
+  "runtime_seconds": 121.99334531099998,
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba": "0.60.0"
+}

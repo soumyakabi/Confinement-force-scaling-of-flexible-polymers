@@ -1,0 +1,8 @@
+Fig. 7(i) revised
+w=0.1
+core N=[100, 150, 200, 250]
+nu_eff WLS=0.554179 +/- 0.002354
+bootstrap median=0.554140
+bootstrap 95% CI=[0.549692,0.558717]
+chi2/dof=0.0099
+R2_log=1.000000
