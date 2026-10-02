@@ -1,0 +1,120 @@
+{
+  "script": "Fig3_POSTPROCESS_FINAL.py",
+  "generated": "2026-09-30T03:59:23",
+  "raw_dir": "/mnt/data/fig3_final_work",
+  "canonical_rg_master": "/mnt/data/Rg_MASTER_FINAL_MERGED_S8_REV8.csv",
+  "simulation_rerun": false,
+  "canonical_Rg": {
+    "100": 6.449921465376292,
+    "150": 8.19969818294269,
+    "200": 9.744501656839986,
+    "250": 10.988157546967631
+  },
+  "canonical_Rg_err": {
+    "100": 0.0137537732170537,
+    "150": 0.0286423016385674,
+    "200": 0.0276709510674734,
+    "250": 0.1090329366508892
+  },
+  "Rg_rebase_audit": [
+    {
+      "N": 100,
+      "Rg_old_archive": 6.449921465376292,
+      "Rg_current_canonical": 6.449921465376292,
+      "relative_change": 0.0
+    },
+    {
+      "N": 150,
+      "Rg_old_archive": 8.19969818294269,
+      "Rg_current_canonical": 8.19969818294269,
+      "relative_change": 0.0
+    },
+    {
+      "N": 200,
+      "Rg_old_archive": 9.669317863734271,
+      "Rg_current_canonical": 9.744501656839986,
+      "relative_change": 0.007775501246856259
+    },
+    {
+      "N": 250,
+      "Rg_old_archive": 10.988157546967631,
+      "Rg_current_canonical": 10.988157546967631,
+      "relative_change": 0.0
+    }
+  ],
+  "DeltaF_definition": "ln(mean Z_infinity) - ln(mean Z_L) using equal-sized independent block estimates",
+  "force_definition": "signed mean of block finite differences [lnZ(L+delta)-lnZ(L-delta)]/(2 delta)",
+  "signed_force_retained": true,
+  "sign_based_selection": false,
+  "point_deletion": false,
+  "force_fit": {
+    "xmax": 1.9,
+    "n_points": 14,
+    "exponent": -2.8470031897337713,
+    "exponent_err": 0.028084536256377222,
+    "intercept": 2.667130326831403,
+    "amplitude": 14.39859060056901,
+    "chi2": 13.922624843194397,
+    "dof": 12,
+    "reduced_chi2": 1.1602187369328665
+  },
+  "fit_sensitivity": [
+    {
+      "xmax": 1.7,
+      "n_points": 10,
+      "exponent": -2.860503898188139,
+      "exponent_err": 0.03943508305866677,
+      "intercept": 2.6703291868697554,
+      "amplitude": 14.444723423533059,
+      "chi2": 10.5019189558405,
+      "dof": 8,
+      "reduced_chi2": 1.3127398694800625
+    },
+    {
+      "xmax": 1.8,
+      "n_points": 11,
+      "exponent": -2.8623058527955987,
+      "exponent_err": 0.0357749920950782,
+      "intercept": 2.670742486188617,
+      "amplitude": 14.45069465175243,
+      "chi2": 10.513714549179626,
+      "dof": 9,
+      "reduced_chi2": 1.1681905054644028
+    },
+    {
+      "xmax": 1.9,
+      "n_points": 14,
+      "exponent": -2.8470031897337713,
+      "exponent_err": 0.028084536256377222,
+      "intercept": 2.667130326831403,
+      "amplitude": 14.39859060056901,
+      "chi2": 13.922624843194397,
+      "dof": 12,
+      "reduced_chi2": 1.1602187369328665
+    }
+  ],
+  "gaussian_exact_audit": {
+    "max_rel_DeltaF_error": 1.9951563591140617e-16,
+    "max_rel_force_error": 5.403338689952748e-16,
+    "max_abs_DeltaF_error": 1.7763568394002505e-15
+  },
+  "outputs": [
+    "Fig3_DeltaF_Reconstruction_Audit.csv",
+    "Fig3_FORCE_SCALING_FINAL.pdf",
+    "Fig3_FORCE_SCALING_FINAL.png",
+    "Fig3_FREE_ENERGY_SCALING_FINAL.pdf",
+    "Fig3_FREE_ENERGY_SCALING_FINAL.png",
+    "Fig3_Gaussian_Exact_Audit.csv",
+    "Fig3_Gaussian_PointLevel.csv",
+    "Fig3_Rg_Rebasing_Audit.csv",
+    "Fig3_SAW_BlockLevel.csv",
+    "Fig3_SAW_Convergence.csv",
+    "Fig3_SAW_ForceBlockLevel.csv",
+    "Fig3_SAW_ForceBootstrap_Audit.csv",
+    "Fig3_SAW_ForceFit_FINAL.csv",
+    "Fig3_SAW_LPlan.csv",
+    "Fig3_SAW_PilotThresholds.csv",
+    "Fig3_SAW_PointLevel.csv",
+    "Rg_MASTER_FINAL_MERGED_CURRENT.csv"
+  ]
+}
