@@ -1,0 +1,4 @@
+w,minimum_ESS_all_states,median_ESS_all_states,maximum_weight_fraction_all_states,all_blocks_ok,all_overflow_zero,all_signed_forces_retained
+0.0,210.20082437378747,283.9595429822999,0.006526509755691759,True,True,True
+0.3,228.58208044251617,319.9598267120658,0.026334157172595532,True,True,True
+0.5,120.29725252086016,313.893741647033,0.07157353238627581,True,True,True

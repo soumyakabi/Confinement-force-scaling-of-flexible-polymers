@@ -1,0 +1,145 @@
+{
+  "script_name": "FigS7_Z_DeltaF_Force_Convergence_REV9_FINAL.py",
+  "script_version": "9.0-PRODUCTION-NUMBA",
+  "timestamp": "2026-09-29T04:16:33",
+  "command": "/kaggle/working/FigS7_Z_DeltaF_Force_Convergence_REV9_FINAL --s6-code /kaggle/input/datasets/soumyajyotikabi/s6-code/FigS6_FreeEnergy_DJ_MASTER_REVISED_FINAL_numba_v1.py --rg-master /kaggle/input/datasets/soumyajyotikabi/200-n-rg-new/Rg_MASTER_FINAL.csv --outdir /kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL --N 200 --w-values 0.0 0.3 0.5 --blocks 40 --block-counts 8 16 24 32 40 --roots-per-block 384 --unconfined-roots-per-block 4096 --pilot-roots 20000 --max-population 32768 --C-minus 0.5 --C-plus 2.0 --prune-probability 0.5 --max-clones 4 --delta-L 2 --bootstrap 5000 --seed 20260929",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "numba_version": "0.60.0",
+  "engine_file": "/kaggle/input/datasets/soumyajyotikabi/s6-code/FigS6_FreeEnergy_DJ_MASTER_REVISED_FINAL_numba_v1.py",
+  "rg_master_file": "/kaggle/input/datasets/soumyajyotikabi/200-n-rg-new/Rg_MASTER_FINAL.csv",
+  "N": 200,
+  "w_values": [
+    0.0,
+    0.3,
+    0.5
+  ],
+  "delta_L": 2,
+  "blocks": 40,
+  "block_counts": [
+    8,
+    16,
+    24,
+    32,
+    40
+  ],
+  "roots_per_block_finite": 384,
+  "roots_per_block_unconfined": 4096,
+  "pilot_roots": 20000,
+  "C_minus": 0.5,
+  "C_plus": 2.0,
+  "prune_probability": 0.5,
+  "max_clones": 4,
+  "max_population": 32768,
+  "seed": 20260929,
+  "hash_table_size": 1024,
+  "geometry": {
+    "lattice": "3D simple cubic",
+    "walls": "absorbing at z=0 and z=L",
+    "tether": "z=L/2",
+    "accessible_layers": "z=1,...,L-1",
+    "finite_L_even_only": true
+  },
+  "state_plan": {
+    "0.0": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24
+    ],
+    "0.3": [
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26
+    ],
+    "0.5": [
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28
+    ]
+  },
+  "Rg_source": {
+    "0.0": {
+      "Rg": 5.775078640000605,
+      "Rg_err": 0.0048481753011338,
+      "quality_flag": "OK",
+      "min_ESS": 4000.0,
+      "median_ESS": 4000.0,
+      "max_block_weight_fraction": 0.00025,
+      "estimator": "sqrt(weighted mean of per-chain Rg^2)"
+    },
+    "0.3": {
+      "Rg": 7.547954539467724,
+      "Rg_err": 0.0146480562237598,
+      "quality_flag": "OK",
+      "min_ESS": 523.4036530211924,
+      "median_ESS": 607.4099818309219,
+      "max_block_weight_fraction": 0.0224008804511591,
+      "estimator": "sqrt(weighted mean of per-chain Rg^2)"
+    },
+    "0.5": {
+      "Rg": 7.998446617153261,
+      "Rg_err": 0.0196200078211687,
+      "quality_flag": "OK",
+      "min_ESS": 183.37725200739968,
+      "median_ESS": 286.0522530821804,
+      "max_block_weight_fraction": 0.0457239537024288,
+      "estimator": "sqrt(weighted mean of per-chain Rg^2)"
+    }
+  },
+  "samplers": {
+    "finite_width": "adopted S6 center-tethered PERM with frozen independent unpruned pilot",
+    "unconfined": "canonical Boltzmann-biased SIS/Rosenbluth, genuine L=infinity reference (Option 1)"
+  },
+  "estimators": {
+    "lnZ_state": "block mean of block-level log partition-function estimates",
+    "DeltaF_block": "lnZ_inf_block - lnZ_conf_block",
+    "DeltaF": "mean of block-level logarithmic differences",
+    "force_block": "[lnZ_plus_block - lnZ_minus_block]/(2 delta_L)",
+    "force": "mean of signed block-level central differences",
+    "fRg": "Rg * force",
+    "fRg_uncertainty": "block SEM propagated through finite difference, then independent Rg uncertainty added in quadrature",
+    "bootstrap": "paired block bootstrap using the same resampled block indices for neighboring-width/reference arrays"
+  },
+  "quality_control": {
+    "sign_selection": false,
+    "negative_force_blocks_retained": true,
+    "point_deletion": false,
+    "outlier_filtering": false,
+    "smoothing": false,
+    "fitting": false,
+    "overflow_allowed": false,
+    "extinction_allowed": false
+  },
+  "reviewer_2_comment_4": "S7 directly demonstrates convergence of lnZ(L), DeltaF(L), and the resulting force using cumulative independent production blocks. The unconfined reference is simulated at genuine L=infinity rather than a finite-L proxy. Force uncertainty is formed at the block level from the complete logarithmic finite difference, with paired block bootstrap.",
+  "figure": {
+    "panel_a": "lnZ(L) convergence relative to final block estimate",
+    "panel_b": "DeltaF(L) convergence with block SEM",
+    "panel_c": "signed fRg convergence on a linear y-axis",
+    "panel_d": "minimum block ESS diagnostic"
+  },
+  "runtime_seconds": 681.9442522525787,
+  "outputs": {
+    "convergence_levels": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_convergence_levels.csv",
+    "block_level": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_block_level.csv",
+    "force_block_level": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_force_block_level.csv",
+    "final_state_summary": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_final_state_summary.csv",
+    "sampling_diagnostics": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_sampling_diagnostics_summary.csv",
+    "convergence_audit": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_convergence_audit.csv",
+    "monotonicity_audit": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_monotonicity_audit.csv",
+    "figure_png": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_Z_DeltaF_Force_Convergence_REV9_FINAL.png",
+    "figure_pdf": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_Z_DeltaF_Force_Convergence_REV9_FINAL.pdf",
+    "thresholds": "/kaggle/working/FigS7_DJ_CONVERGENCE_REV9_FINAL/FigS7_PERM_FROZEN_THRESHOLDS.json"
+  }
+}
