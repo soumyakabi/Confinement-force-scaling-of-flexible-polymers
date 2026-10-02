@@ -1,0 +1,53 @@
+{
+  "N": 200,
+  "Rg": 5.773502691896258,
+  "delta_L": 2.0,
+  "bridge": "exact absorbing-interval image kernel",
+  "kernel_audit": [
+    {
+      "audit": "image_cutoff_convergence",
+      "max_abs_difference": 0.0,
+      "threshold": 1e-12,
+      "pass": true
+    },
+    {
+      "audit": "image_vs_eigen_kernel",
+      "max_abs_difference": 5.079159315357629e-12,
+      "threshold": 1e-10,
+      "pass": true
+    }
+  ],
+  "exact_fd_audit": [
+    {
+      "ratio": 1.4,
+      "rel_error_deltaL_0p5": 0.007697213428398517,
+      "rel_error_deltaL_1": 0.03132970012617599,
+      "rel_error_deltaL_2": 0.134688090736858,
+      "production_deltaL": 2.0
+    },
+    {
+      "ratio": 2.0,
+      "rel_error_deltaL_0p5": 0.0037605704187156875,
+      "rel_error_deltaL_1": 0.0151704393253538,
+      "rel_error_deltaL_2": 0.06281209338305252,
+      "production_deltaL": 2.0
+    },
+    {
+      "ratio": 3.0,
+      "rel_error_deltaL_0p5": 0.0016601464682153226,
+      "rel_error_deltaL_1": 0.006665734963291113,
+      "rel_error_deltaL_2": 0.027072156794672494,
+      "production_deltaL": 2.0
+    },
+    {
+      "ratio": 4.0,
+      "rel_error_deltaL_0p5": 0.000924390488725115,
+      "rel_error_deltaL_1": 0.003705938765635176,
+      "rel_error_deltaL_2": 0.014959009439063177,
+      "production_deltaL": 2.0
+    }
+  ],
+  "free_energy_points": 21,
+  "force_points": 19,
+  "force_points_with_negative_block_estimates": []
+}
